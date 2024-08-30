@@ -113,7 +113,7 @@ class pessoaControler{
             const valores = [Apelido, Nome, Nascimento, JSON.stringify(Stack), id];
             conect.query(sql,valores,(error, result)=>{
                 if(error){
-                    res.status(422).send("INTERNAL ERROR SERVER");
+                    res.status(500).send("INTERNAL ERROR SERVER");
                     return;
                 }
 
