@@ -113,9 +113,35 @@ class pessoaControler{
             const valores = [Apelido, Nome, Nascimento, JSON.stringify(Stack), id];
             conect.query(sql,valores,(error, result)=>{
                 if(error){
-                    res.status(500).send("erro ao atualizar o registro");
+                    res.status(422).send("INTERNAL ERROR SERVER");
                     return;
                 }
+
+        if (Apelido == null) {
+            res.status(422).send("Apelido nao pode ser nulo.");
+            return;
+        } else if (Nome == null) {
+            res.status(422).send("Nome nao pode ser nulo.");
+            return;
+        }else if (Nascimento == null)
+        {
+            res.status(422).send("Nascimento nao pode ser nulo");
+            return;
+        }
+        else if(Apelido.trim() === "")
+        {
+            res.status(422).send("Atributo nome é obrigatorio");
+            return;
+        }else if (Nome.trim() === "")
+        {
+            res.status(422).send("Atributo Nome é obrigatorio");
+            return;
+        }
+        else if(Nascimento.trim() === "")
+        {
+            res.status(422).send("Atributo Nascimento é obtigatorio");
+            return;
+        }
                 if(result.affectedRows === 0){
                     res.status(404).send("registro não encontrado");
                     return;
@@ -133,16 +159,14 @@ const id = req.params.id;
 const sql ='DELETE FROM pessoas WHERE id =?'
 conect.query(sql, id,(error,result)=>{
     if(error){
-        console.log("nao deu para deletar",error);
         res.status(500)
         return;
     }
     if(result.affectedRows == 0){
-        res.status(404).send("registro nao encontrardo")
+        res.status(400).send("BAD REQUEST")
         return;
     }
-    console.log("deletado com sucesso");
-    res.status(200).send("registro deletado");
+    res.status(202).send([]);
 })
 }
 
