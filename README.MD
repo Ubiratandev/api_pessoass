@@ -1,7 +1,7 @@
 INSTRUÇAO DE USO:
  
- a api deve ser iniciazilaza utilizando a porta 3000
- caso deseje mudar a porta basta arualizar a variavel de ambiente 'PORT'
+ A api deve ser iniciazilada utilizando a porta 3000
+ caso deseje mudar a porta basta atualizar a variavel de ambiente 'PORT'
  no arquivo .env
 
  para inicializar o serviço use o comando node Conexao.js 
