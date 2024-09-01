@@ -1,3 +1,5 @@
+O meu banco de dados foi criado em no linx através do terminal, seguem os comandos de criação:
+ 
 CREATE USER 'test'@'localhost' IDENTIFIED BY 'Umjacare23!';
 GRANT ALL PRIVILEGES ON PESSOAS.* TO 'test'@'localhost';
 
