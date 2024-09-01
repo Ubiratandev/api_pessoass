@@ -1,6 +1,6 @@
 INSTRUÇAO DE USO:
  
- A api deve ser iniciazilada utilizando a porta 3000
+ A api deve ser inicializada utilizando a porta 3000
  caso deseje mudar a porta basta atualizar a variavel de ambiente 'PORT'
  no arquivo .env
 
