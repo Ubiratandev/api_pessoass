@@ -4,7 +4,7 @@ import App from "./App.js";
 dotenv.config()
 
 
-App.listen(3000,()=>{
+App.listen(process.env.PORT,()=>{
 console.log("servidor on-line")
 
 })
@@ -25,6 +25,6 @@ conect.connect((err)=>{
         console.log("erro ao conectar ao banco de dados",err);
         return;
     }
-    console.log("conexão bem sucedida")
+    console.log(`conexão bem sucedida, api rodando na porta ${process.env.PORT}`)
 })
 export default conect;

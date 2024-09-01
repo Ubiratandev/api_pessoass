@@ -12,6 +12,10 @@ class pessoaControler {
                 return;
 
             }
+            if (result.length === 0) {
+                res.status(404).send('Registro não encontrado');
+                return;
+            }
             const pessoa = result[0];
             pessoa.Stack = JSON.parse(pessoa.Stack);
             pessoa.Nascimento = pessoa.Nascimento.toISOString().split('T')[0];
@@ -88,6 +92,18 @@ class pessoaControler {
             res.status(400).send("Atributo Nascimento é obtigatorio");
             return;
         }
+        else if (Stack.length == 0) {
+            
+            res.status(400).send("Stack não pode ser vazia");
+            return;
+
+        }
+        else if (Stack.some((element)=>{element.length > 32})) {
+
+            res.status(400).send("elemento da Stack não pode ser maior que 32 caracteres");
+            return;
+
+        }
 
         conect.query(sql, valores, (error, result) => {
 
@@ -132,6 +148,23 @@ class pessoaControler {
                 res.status(422).send("Atributo Nascimento é obtigatorio");
                 return;
             }
+            else if (Stack.length == 0) {
+            
+                res.status(400).send("Stack não pode ser vazia");
+                return;
+    
+            }
+            else if (Stack.some((element) => element.length === 0)) {
+                res.status(400).send("Elemento da stack não pode ser vazio");
+                return;
+            }
+            else if (Stack.some((element)=>{element.length > 32})) {
+    
+                res.status(400).send("elemento da Stack não pode ser maior que 32 caracteres");
+                return;
+                
+            }
+            
             if (result.affectedRows === 0) {
                 res.status(404).send("registro não encontrado");
                 return;
