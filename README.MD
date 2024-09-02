@@ -52,6 +52,9 @@ ROTA DE DELETE
 
 '/pessoas/:id'
 
+De ultima hora resolvi integrar o projeto com um front end, ficou bem simples mas acho que pode acrescentar um pouco 
+a este projeto, criei outro repositório para isso e aqui esta o link caso queira ver https://github.com/Ubiratandev/api_integrada_front.
+
 exemplo "http://localhost:3000/pessoas/2"
 
 
